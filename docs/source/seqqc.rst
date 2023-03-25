@@ -4,7 +4,7 @@ Sequence QC/Intro to Galaxy
 Lecture
 ^^^^^^^
 
-.. slide:: https://docs.google.com/presentation/d/1UW-LtFjL-4pJANNzSwKvQC_IK8ILbLiw6K6ToYupZC8
+.. slide:: https://docs.google.com/presentation/d/e/2PACX-1vTQHb8pGMTlHNy_9iM5Y9cdMprYYswDbOlx3x5ZM4jV_dmaRZMj7FQy48diov2Ffw
 
 Introduction
 ^^^^^^^^^^^^
@@ -152,7 +152,7 @@ Read more about Trimmomatic here: http://www.usadellab.org/cms/?page=trimmomatic
         * Input FASTQ file (R2\second pair of reads): Click on the down arrow and select ``CA_Root_R2.fastq.gz``
 
         * Perform initial ILLUMINACLIP step? ``Yes``
-        
+
 
         * Leave all other parameters as default.
 
@@ -160,7 +160,7 @@ Read more about Trimmomatic here: http://www.usadellab.org/cms/?page=trimmomatic
 
 
     3. Click 'Execute'
-    
+
     4. Repeat fastqc analysis on the paired trimmed files (``Trimmomatic on CA-Root_R1.fastq.gz  (R1 paired)`` and ``Trimmomatic on CA-Root_R2.fastq.gz  (R2) paired``).
 
 
@@ -178,9 +178,9 @@ In order to visualize and evaluate how trimming and filtering impacted our quali
         * Which tool was used to generate logs? ``fastqc``
 
         * In “FastQC output”:
-        
+
             * Type of fastQC output: ``Raw data``
-            
+
             * FastQC output: Select raw data output files from FastQC (4 total files)
 
 
@@ -214,17 +214,17 @@ Galaxy makes this very easy with the Extract workflow option. This means any tim
     1. Clean up your history: remove any failed (red) jobs from your history. This will make the creation of the workflow easier.
 
     2. Click on galaxy-history-options (History options) at the top of your history panel and select Extract workflow.
-    
+
     .. image:: _static/extractworkflow.png
 
     The central panel will show the content of the history in reverse order (oldest on top), and you will be able to choose which steps to include in the workflow.
-    
+
     .. image:: _static/extractworkflow2.png
-    
+
     3. Replace the Workflow name to something more descriptive, for example: ``Illumina PE QC``
-    
+
     4. Rename the workflow input in the box at the top of second column to: ``Read1`` and ``Read2``
-    
+
     5. Click on the Create Workflow button near the top.
 
 Create a New History
@@ -234,7 +234,7 @@ Let’s create a new history so that we can test out our new workflow and run so
 .. admonition:: Hands-On: Create a New History
 
     1. Create a new history
-    
+
     .. image:: _static/createnewhis.png
 
     2. Rename your history to ``NPDN 2023 2G Virus``
@@ -248,40 +248,40 @@ Here we will import Ilumina reads from NCBIs SRA database.
     1. In the tools panel search for ``Faster Download and Extract Reads in FASTQ`` and click on it
 
     2. Enter this Accession: SRR11794481
-    
+
     3. Click ``Run tool``
-    
+
     4. Several collections are created in your history panel when you submit this job:
-    
+
         * Paired-end data (fasterq-dump); Contains Paired-end datasets (if available)
-        
+
         * Single-end data (fasterq-dump); Contains Single-end datasets (if available)
-        
+
         * Other data (fasterq-dump); Contains Unpaired datasets (if available)
-        
+
         * fasterq-dump log; Contains information about the tool execution
-        
+
 Once fasterq finishes transferring the data explore the collections created by clicking on the collection name in the history panel. You should see in the paired-end data collection there is a pair of reads. This is what we will be analyzing.
 
 Subset Data
 ^^^^^^^^^^^^
 
-Because the dataset we just downloaded is very large analysis on the full dataset may take an extended period of time. To reduce the time spent running analysis lets subset the reads to only the first 1,000,000 reads. 
+Because the dataset we just downloaded is very large analysis on the full dataset may take an extended period of time. To reduce the time spent running analysis lets subset the reads to only the first 1,000,000 reads.
 
 .. admonition:: Hands-On: Import Data from SRA
 
     1. In the tools panel search for ``Select first lines from a dataset`` and click on it
 
     2. Set the following parameters:
-    
+
         * Select first *: ``4,000,000``
-		
+
 		* from: ``SRR11794481 forward uncompressed`` and ``SRR11794481 reverse uncompressed``
-		
+
 	.. image:: _static/subsample.png
-    
+
     3. Click ``Run tool``
-	
+
 	4. After the files are generated lets rename them to, ``Raw Read 1`` and ``Raw Read 2``
 
 
@@ -293,16 +293,15 @@ Lets run our quality control pipeline on our newly downloaded and subsetted data
 .. admonition:: Hands-On: Run A Workflow
 
     1. Click on Workflow in the top menu bar of Galaxy. Here you have a list of all your workflows. Your newly created workflow should be listed at the top:
-    
+
     .. image:: _static/selectworkflow.png
-    
-    2. Click on the Run workflow button next to your workflow. The central panel will change to allow you to configure and launch the workflow. 
-    
+
+    2. Click on the Run workflow button next to your workflow. The central panel will change to allow you to configure and launch the workflow.
+
     .. image:: _static/selectworkflow2.png
-    
+
     3. Click on the Browse datasets icon on the right of each input box. For Read1 input select the ``Raw Read 1`` file, and for Read2 input choose ``Raw Read 2``.
-    
+
     4. Select Run Workflow.
-    
-Examine the output from the workflow as it finishes. 
-    
+
+Examine the output from the workflow as it finishes.
