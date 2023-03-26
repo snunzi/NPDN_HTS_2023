@@ -12,7 +12,7 @@ NPDN HTS Bioinformatics Training 2023
 
    intro
    seqqc
-   assembly
+   mappingassembly
    2gvirus
    3gvirus
    2Gmetabarcode
