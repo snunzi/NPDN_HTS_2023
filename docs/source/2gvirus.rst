@@ -18,6 +18,11 @@ Detecting viruses from metagenomic sequencing data can be done with two main tec
 
 First, we will focus on the taxonomic assignment of reads.
 
+Pipeline Picture
+^^^^^^^^^^^^^^^^^^
+
+		.. image:: _static/2gviruspipeline.png
+
 Open History
 ^^^^^^^^^^^^^
 
@@ -39,8 +44,8 @@ First, we need to remove host contamination since this is a metagenomic sample. 
 .. admonition:: Hands-On: Map to Host Genome
 
 	1. In Tools Panel, upload the Hibiscus Genome available from NCBI: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/006/381/635/GCF_006381635.1_ASM638163v2/GCF_006381635.1_ASM638163v2_genomic.fna.gz
-	
-		* Click ``Upload Data`` --> ``Paste/fetch Data`` --> Paste link above
+
+		* Click ``Upload Data`` --> ``Paste/fetch Data`` --> Paste link above --> Start --> Close
 
 	2. In tools menu, search for 'bowtie2' and click on it.
 
@@ -55,7 +60,7 @@ First, we need to remove host contamination since this is a metagenomic sample. 
 		* “Will you select a reference genome from your history or use a built-in index?”: ``Use a genome from the history and build index``
 
 		* “Select reference genome”: ``GCF_006381635.1_ASM638163v2_genomic.fna.gz``
-		
+
 		* Write unaligned reads (in fastq format) to separate file(s): ``Yes``
 
 		* “Save the bowtie2 mapping statistics to the history”: ``Yes``
@@ -63,7 +68,7 @@ First, we need to remove host contamination since this is a metagenomic sample. 
 		* Leave the rest as default.
 
 	3. Click Execute.
-	
+
 	4. When the tool finishes rename the ``unaligned reads (L)`` to ``Read 1 Non-host`` and the ``unaligned read (R)`` to ``Read 2 Non-host``
 
 
@@ -91,9 +96,9 @@ In this tutorial we will be using kraken to identify members in a mixed set of m
 
 .. admonition:: Hands-On: Taxonomic Read Assignment with Kraken
 
-    1. In the tools menu search for 'kraken' tool and click on it.
+    1. In the tools menu search for 'kraken2' tool and click on it.
 
-    2. Run kraken with the following parameters:
+    2. Run kraken2 with the following parameters:
 
 		* Single or paired end reads: ``paired``
 
@@ -103,7 +108,7 @@ In this tutorial we will be using kraken to identify members in a mixed set of m
 
 		.. image:: _static/kraken_input.png
 
-		* Select a kraken database: ``viral_2020`` 
+		* Select a kraken database: ``Viral genomes (2019)``
 
 		* Leave all others as default and click ``Execute``
 
@@ -157,7 +162,7 @@ While the raw kraken output contains a lot of information, it is impossible to m
 
 		* Kraken output: ``Kraken on data x: Classification``
 
-		* Select a Kraken database: ``viral_2020`` 
+		* Select a Kraken database: ``viral_2020``
 
 When this analysis finished running it should generate a file ``Kraken-report on x``. Click the eye icon next to the result file and view the results.
 
@@ -193,7 +198,7 @@ Genome Assembly with Metaspades
 
 Next we will assemble all reads that did not map to host using a specialized version of Spades designed for metagenomic samples, metaSpades.
 
-.. admonition:: Hands-On: Assembly with metaviralSpades
+.. admonition:: Hands-On: Assembly with metaSpades
 
 	1. In the tools menu search for 'metaspades' tool and click on it.
 

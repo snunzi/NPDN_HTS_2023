@@ -247,7 +247,7 @@ Here we will import Ilumina reads from NCBIs SRA database.
 
     1. In the tools panel search for ``Faster Download and Extract Reads in FASTQ`` and click on it
 
-    2. Enter this Accession: SRR11794481
+    2. Enter this Accession: SRR22139844
 
     3. Click ``Run tool``
 
@@ -261,7 +261,7 @@ Here we will import Ilumina reads from NCBIs SRA database.
 
         * fasterq-dump log; Contains information about the tool execution
 
-Once fasterq finishes transferring the data explore the collections created by clicking on the collection name in the history panel. You should see in the paired-end data collection there is a pair of reads. This is what we will be analyzing.
+Once fasterq finishes transferring the data explore the collections created by clicking on the collection name in the history panel. You should see in the paired-end data collection there is a pair of reads. This is what we will be analyzing. You can delete the other 3 empty collections.
 
 Subset Data
 ^^^^^^^^^^^^
@@ -276,7 +276,7 @@ Because the dataset we just downloaded is very large analysis on the full datase
 
         * Select first *: ``4,000,000``
 
-		* from: ``SRR11794481 forward uncompressed`` and ``SRR11794481 reverse uncompressed``
+		* from: ``SRR22139844 forward uncompressed`` and ``SRR22139844 reverse uncompressed``
 
 	.. image:: _static/subsample.png
 

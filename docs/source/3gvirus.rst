@@ -139,7 +139,7 @@ Just like with our 2g dataset, we will be using kraken to identify members in a 
 .. admonition:: Hands-On: Taxonomic Read Assignment with Kraken
 
 
-    1. Run kraken with the following parameters:
+    1. Run kraken2 with the following parameters:
 
       * Single: ``single``
 
@@ -153,7 +153,7 @@ Just like with our 2g dataset, we will be using kraken to identify members in a 
 
       * Kraken output: ``Kraken on data x: Classification``
 
-      * Select a Kraken database: ``Viruses``
+      * Select a Kraken database: ``Viruses_2020``
 
 When this analysis finished running it should generate a file ``Kraken-report on x``. Click the eye icon next to the result file and view the results.
 
