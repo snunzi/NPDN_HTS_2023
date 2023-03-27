@@ -6,6 +6,10 @@ Introduction
 ^^^^^^^^^^^^
 Here, we will perform virus discovery on a Tomato leaf sample. The data was generated using the SQK-PCS108 cDNA PCR kit (Oxford Nanopore Technologies) and sequenced in a MinION Mk1B device (MIN-101B). Detecting viruses from metagenomic MinION sequencing data follows a similar bioinformatic workflow as 2G data. However, different programs are used that account for the different read properties.
 
+Pipeline Picture
+^^^^^^^^^^^^^^^^^^
+
+		.. image:: _static/3gviruspipeline.png
 
 Import Data
 ^^^^^^^^^^^
@@ -17,7 +21,7 @@ Lets import data from a shared history. These are raw reads, exactly how you wou
 
     2. In the search field, search for ``NPDN 2023``
 
-    3. Find the history for ``NPDN 2023 Data 3G Virus `` Select the green plus sign to import into your Galaxy environment.
+    3. Find the history for ``NPDN 2023 3G Virus Data`` Select the green plus sign to import into your Galaxy environment.
 
 Sequence QC
 ^^^^^^^^^^^^^
@@ -56,31 +60,13 @@ Quality Filtering
 ^^^^^^^^^^^^^^^^^^^
 Many of the reads appear to have  low quality bases. Let's filter the data to remove adapters, chimeric reads, and low quality bases. First we will filter to retain only high-quality long reads. Quality filtering is a balancing act to retain enough high-quality reads for analysis. Here, we will set a minimum length for reads to maintain. We will also only keep the top 20% of high quality reads. This will help our analysis run faster, you may also set a minimum quality threshold. Please play with filtering on your own time to see how this impacts analysis.
 
-
-
-.. admonition:: Hands-On: Adapter Trimming
-
-    1. In tools menu, search for 'porechop' and click on it.
-
-    2. Run porechop tool with the following parameters
-
-      * Input Fastq: ``virus_3g.fastq.gz``
-
-      * Output Format for the Reads: ``fastq.gz``
-
-      * Leave the rest as default.
-
-    3. Click Execute.
-
-Porechop should produce a new fastq file with adapter and chimeric reads removed. Let's now filter by quality.
-
 .. admonition:: Hands-On: Quality Filtering
 
     1. In tools menu, search for 'Filtlong' and click on it.
 
     2. Run Filtlong tool with the following parameters
 
-      * Input Fastq: ``prechop output``
+      * Input Fastq: ``virus_3g.fastq.gz``
 
       * Output Theshholds:
 
@@ -91,6 +77,26 @@ Porechop should produce a new fastq file with adapter and chimeric reads removed
       * Leave the rest as default.
 
     3. Click Execute.
+
+Now we will remove any adapters left over after seqeuncing.
+
+.. admonition:: Hands-On: Adapter Trimming
+
+    1. In tools menu, search for 'porechop' and click on it.
+
+    2. Run porechop tool with the following parameters
+
+      * Input Fastq: ``filtlong output``
+
+      * Output Format for the Reads: ``fastq.gz``
+
+      * Leave the rest as default.
+
+    3. Click Execute.
+
+Porechop should produce a new fastq file with adapter and chimeric reads removed.
+
+
 
 
 
@@ -120,7 +126,7 @@ Just like we did with 2G viral metagenomic data, we will now remove host reads f
 
       * “Output format”: ``compressed FASTQ``
 
-      * “Outputs”: ``Read1``
+      * “Outputs”: ``others``
 
       * “Require that these flags are set”: ``Read is unmapped``
 
@@ -145,7 +151,7 @@ Just like with our 2g dataset, we will be using kraken to identify members in a 
 
       * Input Sequences:  ``virus3g_nonhost.fastq.gz`` (file we just filtered).
 
-      * Select a kraken database: ``Viruses``
+      * Select a kraken database: ``Viral genomes (2019)``
 
       * Leave all others as default and click ``Execute``
 
