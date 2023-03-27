@@ -16,6 +16,10 @@ asiaticus”, which causes Huanglongbing (HLB) disease on citrus. The sequenced 
 
 .. image:: _static/CitrusGreening1.jpg
 
+Pipeline Picture
+^^^^^^^^^^^^^^^^^^
+
+		.. image:: _static/2gseqqcpipeline.png
 
 Login to Galaxy
 ^^^^^^^^^^^^^^^
