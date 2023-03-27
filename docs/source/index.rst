@@ -18,7 +18,6 @@ NPDN HTS Bioinformatics Training 2023
    2Gmetabarcode
    3Gmetabarcode
    help
-   questions
 
 
 Indices and tables
