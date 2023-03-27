@@ -30,9 +30,13 @@ On the first day of training we imported the reads from SRA and performed qualit
 
 .. admonition:: Hands-On: Switch History
 
-  1. At the top of the history panel click on ``Switch History``
+  1. At the top of the screen select ``Shared Data`` and select ``Histories`` from the drop down menu.
 
-  2. Select the history we created on Day 1, ``NPDN 2023 2G Virus``
+  2. In the Published Histories Panel that opens search for ``NPDN 2023`` and select, ``NPDN 2023 2G Virus Data``
+
+	3. At the top of the page click ``Import History``
+
+	4. If the history does not load automatically, click on the home icon on top then in the History panel click ``Switch Histories`` icon and select the newly imported history
 
 
 Host Removal
