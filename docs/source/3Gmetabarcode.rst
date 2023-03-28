@@ -1,4 +1,4 @@
-3G Viral Metagenomics
+3G Metabarcoding
 =================================
 
 
@@ -9,7 +9,7 @@ Here, we will perform metabarcoding analysis on 2 Phytophthora unknown sample. T
 Pipeline Picture
 ^^^^^^^^^^^^^^^^^^
 
-		.. image:: _static/3gmetabarcode.png
+    .. image:: _static/3gmetabarcode.png
 
 Import Data
 ^^^^^^^^^^^
@@ -30,15 +30,15 @@ The first step in any sequencing analysis is quality check and trimming. These s
 
 .. admonition:: Hands-On: Quality Check
 
-	1. In tools menu, search for 'Nanoplot' and click on it.
+  1. In tools menu, search for 'Nanoplot' and click on it.
 
-	2. Run Nanoplot tool with the following parameters
+  2. Run Nanoplot tool with the following parameters
 
-		* “files”: ``FCR8-NPDN.BC02.fastq`` and ``FCR8-NPDN.BC05.fastq``
+    * “files”: ``FCR8-NPDN.BC02.fastq`` and ``FCR8-NPDN.BC05.fastq``
 
-		* Leave the rest as default.
+    * Leave the rest as default.
 
-	3. Click Execute.
+  3. Click Execute.
 
 
 Nanoplot should produce four output files for each read file. Let's take a look at the html output report.
@@ -48,11 +48,11 @@ Nanoplot should produce four output files for each read file. Let's take a look 
 
 .. container:: toggle
 
-	.. container:: header
+  .. container:: header
 
-		**How many reads are in this dataset?**
+    **How many reads are in this dataset?**
 
-	Each sample should have about 5,000 reads. This was only run for a few hours with a pool of 12 samples total.
+  Each sample should have about 5,000 reads. This was only run for a few hours with a pool of 12 samples total.
 
 ----------------------------
 
@@ -83,46 +83,46 @@ We will now map the reads to a well-curated Phytophthora gene database. This was
 
 .. admonition:: Hands-On: Read Mapping
 
-	1. In tools menu, search for 'bwa-mem2' and click on it.
+  1. In tools menu, search for 'bwa-mem2' and click on it.
 
-	2. Run bwa-mem2 tool with the following parameters
+  2. Run bwa-mem2 tool with the following parameters
 
-		* Will you select a reference genome from your history or use a built-in index? ``Use a genome from history and build index``
+    * Will you select a reference genome from your history or use a built-in index? ``Use a genome from history and build index``
 
-		* Use the following dataset as the reference: ``ITSv6_YPT-COI_ALL_DB_Combined.fasta``
+    * Use the following dataset as the reference: ``ITSv6_YPT-COI_ALL_DB_Combined.fasta``
 
-		* Single or Paired end reads: ``Single``
+    * Single or Paired end reads: ``Single``
 
-		* Select the two Porechop trimmed files
+    * Select the two Porechop trimmed files
 
-	3. Click Execute.
+  3. Click Execute.
 
 Count number of Reads Mapping to Each Database Entry
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. admonition:: Hands-On: Read Map Counting
 
-	1. In tools menu, search for 'samtools idxstats' and click on it.
+  1. In tools menu, search for 'samtools idxstats' and click on it.
 
-	2. Click icon to analyse multiple datasets and select both bwa-mem2 output Files
+  2. Click icon to analyse multiple datasets and select both bwa-mem2 output Files
 
-	3. Click Execute
+  3. Click Execute
 
 Summarize Read Mapping
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 .. admonition:: Hands-On: Read Map Count Summary
 
-	1. In tools menu search for multiqc and click on it.
+  1. In tools menu search for multiqc and click on it.
 
-	2. Run multiqc with the following parameters
+  2. Run multiqc with the following parameters
 
-		* Which tool was used to generate logs? ``samtools``
+    * Which tool was used to generate logs? ``samtools``
 
-		* + Insert Samtools output
+    * + Insert Samtools output
 
-		* Type of Samtools output? ``idxstats``
+    * Type of Samtools output? ``idxstats``
 
-		* Samtools idxstats output: Select the two samtools idxstats files
+    * Samtools idxstats output: Select the two samtools idxstats files
 
-	3. Click Execute
+  3. Click Execute

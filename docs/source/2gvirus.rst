@@ -21,7 +21,7 @@ First, we will focus on the taxonomic assignment of reads.
 Pipeline Picture
 ^^^^^^^^^^^^^^^^^^
 
-		.. image:: _static/2gviruspipeline.png
+  .. image:: _static/2gviruspipeline.png
 
 Open History
 ^^^^^^^^^^^^^
@@ -34,9 +34,9 @@ On the first day of training we imported the reads from SRA and performed qualit
 
   2. In the Published Histories Panel that opens search for ``NPDN 2023`` and select, ``NPDN 2023 2G Virus Data``
 
-	3. At the top of the page click ``Import History``
+  3. At the top of the page click ``Import History``
 
-	4. If the history does not load automatically, click on the home icon on top then in the History panel click ``Switch Histories`` icon and select the newly imported history
+  4. If the history does not load automatically, click on the home icon on top then in the History panel click ``Switch Histories`` icon and select the newly imported history
 
 
 Host Removal
@@ -47,33 +47,33 @@ First, we need to remove host contamination since this is a metagenomic sample. 
 
 .. admonition:: Hands-On: Map to Host Genome
 
-	1. In Tools Panel, upload the Hibiscus Genome available from NCBI: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/006/381/635/GCF_006381635.1_ASM638163v2/GCF_006381635.1_ASM638163v2_genomic.fna.gz
+  1. In Tools Panel, upload the Hibiscus Genome available from NCBI: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/006/381/635/GCF_006381635.1_ASM638163v2/GCF_006381635.1_ASM638163v2_genomic.fna.gz
 
-		* Click ``Upload Data`` --> ``Paste/fetch Data`` --> Paste link above --> Start --> Close
+  * Click ``Upload Data`` --> ``Paste/fetch Data`` --> Paste link above --> Start --> Close
 
-	2. In tools menu, search for 'bowtie2' and click on it.
+  2. In tools menu, search for 'bowtie2' and click on it.
 
-	2. Run bowtie2 tool with the following parameters
+  3. Run bowtie2 tool with the following parameters
 
-		* “Is this single or paired library”: ``Paired-end``
+  * “Is this single or paired library”: ``Paired-end``
 
-		* “FASTA/Q File #1”: Click on the down arrow and select ``Trimmomatic on Raw Read 1 (R1 paired)``
+  * “FASTA/Q File #1”: Click on the down arrow and select ``Trimmomatic on Raw Read 1 (R1 paired)``
 
-		* “FASTA/Q File #2”: Click on the down arrow and select ``Trimmomatic on Raw Read 2 (R2 paired)``
+  * “FASTA/Q File #2”: Click on the down arrow and select ``Trimmomatic on Raw Read 2 (R2 paired)``
 
-		* “Will you select a reference genome from your history or use a built-in index?”: ``Use a genome from the history and build index``
+  * “Will you select a reference genome from your history or use a built-in index?”: ``Use a genome from the history and build index``
 
-		* “Select reference genome”: ``GCF_006381635.1_ASM638163v2_genomic.fna.gz``
+  * “Select reference genome”: ``GCF_006381635.1_ASM638163v2_genomic.fna.gz``
 
-		* Write unaligned reads (in fastq format) to separate file(s): ``Yes``
+  * Write unaligned reads (in fastq format) to separate file(s): ``Yes``
 
-		* “Save the bowtie2 mapping statistics to the history”: ``Yes``
+  * “Save the bowtie2 mapping statistics to the history”: ``Yes``
 
-		* Leave the rest as default.
+  * Leave the rest as default.
 
-	3. Click Execute.
+  4. Click Execute.
 
-	4. When the tool finishes rename the ``unaligned reads (L)`` to ``Read 1 Non-host`` and the ``unaligned read (R)`` to ``Read 2 Non-host``
+  5. When the tool finishes rename the ``unaligned reads (L)`` to ``Read 1 Non-host`` and the ``unaligned read (R)`` to ``Read 2 Non-host``
 
 
 Bowtie2 should produce four output datasets, one with mapping information (bam file), Reads 1 and reads 2 that were NOT aligned to the host genome (i.e. non-host reads) and the other with the corresponding mapping statistics. Let's take a look at the mapping statistics.
@@ -84,11 +84,11 @@ Inspect the mapping stats by clicking on eye icon next to ``Bowtie2 on X:mapping
 
 .. container:: toggle
 
-	.. container:: header
+  .. container:: header
 
-		**What percentage of reads mapped to the plant genome?**
+  **What percentage of reads mapped to the plant genome?**
 
-	This sample should have ~8-9% of the reads mapped to the host, hibiscus, genome.
+  This sample should have ~8-9% of the reads mapped to the host, hibiscus, genome.
 
 ----------------------------
 
@@ -104,17 +104,17 @@ In this tutorial we will be using kraken to identify members in a mixed set of m
 
     2. Run kraken2 with the following parameters:
 
-		* Single or paired end reads: ``paired``
+  * Single or paired end reads: ``paired``
 
-		* Forward strand:  ``Read 1 Non-host`` (file we just filtered).
+  * Forward strand:  ``Read 1 Non-host`` (file we just filtered).
 
-		* Reverse strand: ``Read 2 Non-host`` (file we just filtered).
+  * Reverse strand: ``Read 2 Non-host`` (file we just filtered).
 
-		.. image:: _static/kraken_input.png
+  .. image:: _static/kraken_input.png
 
-		* Select a kraken database: ``Viral genomes (2019)``
+  * Select a kraken database: ``Viral genomes (2019)``
 
-		* Leave all others as default and click ``Execute``
+  * Leave all others as default and click ``Execute``
 
 
 Examine Kraken Output
@@ -136,15 +136,15 @@ The columns correspond to the following:
 
 5. A space-delimited list indicating the LCA mapping of each k-mer in the sequence. For example, "562:13 561:4 A:31 0:1 562:3" would indicate that:
 
-	* the first 13 k-mers mapped to taxonomy ID #562
+  * the first 13 k-mers mapped to taxonomy ID #562
 
-	* the next 4 k-mers mapped to taxonomy ID #561
+  * the next 4 k-mers mapped to taxonomy ID #561
 
-	* the next 31 k-mers contained an ambiguous nucleotide
+  * the next 31 k-mers contained an ambiguous nucleotide
 
-	* the next k-mer was not in the database
+  * the next k-mer was not in the database
 
-	* the last 3 k-mers mapped to taxonomy ID #562
+  * the last 3 k-mers mapped to taxonomy ID #562
 
 .. container:: toggle
 
@@ -160,13 +160,13 @@ While the raw kraken output contains a lot of information, it is impossible to m
 
 .. admonition:: Hands-On: Generate a Kraken Report
 
-	1. In the tools menu search for 'kraken-report' tool and click on it.
+  1. In the tools menu search for 'kraken-report' tool and click on it.
 
-	2. Run kraken-report with the following parameters:
+  2. Run kraken-report with the following parameters:
 
-		* Kraken output: ``Kraken on data x: Classification``
+  * Kraken output: ``Kraken on data x: Classification``
 
-		* Select a Kraken database: ``viral_2020``
+  * Select a Kraken database: ``viral_2020``
 
 When this analysis finished running it should generate a file ``Kraken-report on x``. Click the eye icon next to the result file and view the results.
 
@@ -204,17 +204,17 @@ Next we will assemble all reads that did not map to host using a specialized ver
 
 .. admonition:: Hands-On: Assembly with metaSpades
 
-	1. In the tools menu search for 'metaspades' tool and click on it.
+  1. In the tools menu search for 'metaspades' tool and click on it.
 
-	2. Run this tool with following parameters:
+  2. Run this tool with following parameters:
 
-		* Forward Reads: ``Read 1 Non-host``
+  * Forward Reads: ``Read 1 Non-host``
 
-		* Reverse Reads: ``Read 2 Non-host``
+  * Reverse Reads: ``Read 2 Non-host``
 
-		* Leave the rest as default
+  * Leave the rest as default
 
-	3. Click Exceute.
+  3. Click Exceute.
 
 When the assembly completes, take a look at the ``metaSPades scaffolds`` output.
 
@@ -222,11 +222,11 @@ When the assembly completes, take a look at the ``metaSPades scaffolds`` output.
 
 .. container:: toggle
 
-	.. container:: header
+  .. container:: header
 
-		**How many scaffolds were assembled?**
+  **How many scaffolds were assembled?**
 
-	This sample should ~5,000-6,000 scaffolds assembled.
+  This sample should ~5,000-6,000 scaffolds assembled.
 
 ----------------------------
 
@@ -237,25 +237,25 @@ Because it would take us a long time to blast search over 5,000 contigs, we will
 
 .. admonition:: Hands-On: Contig Filtering
 
-	1. At the top of the Tools panel (on the left), search for 'filter sequences by length' and click on it.
+  1. At the top of the Tools panel (on the left), search for 'filter sequences by length' and click on it.
 
-	2. Run this tool with following parameters:
+  2. Run this tool with following parameters:
 
-		* Fasta file: ``metaSPades scaffolds``
+  * Fasta file: ``metaSPades scaffolds``
 
-		* Minimal length: ``3000``
+  * Minimal length: ``3000``
 
-		* Maximum length: ``0``
+  * Maximum length: ``0``
 
 -------------------------
 
 .. container:: toggle
 
-	.. container:: header
+  .. container:: header
 
-		**How many contigs are left after filtering?**
+  **How many contigs are left after filtering?**
 
-	This sample should have ~5 contigs left after filtering.
+  This sample should have ~5 contigs left after filtering.
 
 --------------------------
 
@@ -266,26 +266,26 @@ While Galaxy does have a built in Blast tool, I found it very slow. With the sma
 
 .. admonition:: Hands-On: Contig Filtering
 
-	1. In the history panel, click on the eye icon to view your newly filtered contigs ``Filter sequences by length on X``.
+  1. In the history panel, click on the eye icon to view your newly filtered contigs ``Filter sequences by length on X``.
 
-	2. Copy the entire content of this file. (Should be ~5 contigs in fasta format)
+  2. Copy the entire content of this file. (Should be ~5 contigs in fasta format)
 
-	3. Open the NCBI Blastn website in another browser tab: https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastSearch
+  3. Open the NCBI Blastn website in another browser tab: https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastSearch
 
-	4. Paste your contigs sequences	you copied into the box under ``Enter accession number(s), gi(s), or FASTA sequence(s)``
+  4. Paste your contigs sequences	you copied into the box under ``Enter accession number(s), gi(s), or FASTA sequence(s)``
 
-	5. Scroll down and hit Blast.
+  5. Scroll down and hit Blast.
 
 
 -------------------------
 
 .. container:: toggle
 
-	.. container:: header
+  .. container:: header
 
-		**What was your top Blast hit for each of your contigs?**
+  **What was your top Blast hit for each of your contigs?**
 
-	You should see similar to your kraken analysis we recover  Citrus leprosis virus C2 and Hibiscus chlorotic ringspot virus, and also some host RNA and possible fungi.
+  You should see similar to your kraken analysis we recover  Citrus leprosis virus C2 and Hibiscus chlorotic ringspot virus, and also some host RNA and possible fungi.
 
 ----------------------------
 
