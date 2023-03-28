@@ -4,7 +4,7 @@
 
 Introduction
 ^^^^^^^^^^^^
-Here, we will perform metabarcoding analysis on 2 Phytophthora unknown sample. There is currently not a published well evaluated pipeline for analyzing 3G metabarcdoing datasets. Here we will explore the potential of this method, although we are still testing it's ability to discriminate closely related species and establish the best analysis methods.
+Here, we will perform metabarcoding analysis on 2 unknown Phytophthora samples. There is no published well evaluated pipeline for analyzing 3G metabarcdoing datasets. Here we will explore the potential of this method, although we are still testing it's ability to discriminate closely related species and establish the best analysis methods. The following pipeline was evaluated by Subodh Srivastava to evaluate the method.
 
 Pipeline Picture
 ^^^^^^^^^^^^^^^^^^
@@ -21,7 +21,7 @@ Lets import data from a shared history. These are raw reads, exactly how you wou
 
     2. In the search field, search for ``NPDN 2023``
 
-    3. Find the history for ``NPDN 2023 3G Metabarcode Data`` Select the green plus sign to import into your Galaxy environment.
+    3. Find the history for ``NPDN 2023 3G Metabarcode Data`` and select it and click import.
 
 Sequence QC
 ^^^^^^^^^^^^^
