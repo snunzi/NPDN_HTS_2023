@@ -25,3 +25,13 @@ Virus 2G Results: https://usegalaxy.eu/u/schylernunziata/h/npdn-2023-2g-virus-re
 Virus 3G Data: https://usegalaxy.eu/u/schylernunziata/h/npdn-2022-data-day-3
 
 Virus 3G Results: https://usegalaxy.eu/u/schylernunziata/h/npdn-2023-3g-virus-results
+
+Day 3
+
+Metabarcoding 2G Data: https://usegalaxy.eu/u/schylernunziata/h/npdn-2022-data-day-2-part-2
+
+Metabarcoding 2G Results: https://usegalaxy.eu/u/schylernunziata/h/npdn-2023-2g-metabarcode-results
+
+Metabarcoding 3G Data: https://usegalaxy.eu/u/schylernunziata/h/npdn-2023-3g-metabarcode-data
+
+Metabarcoding 3G Results: https://usegalaxy.eu/u/schylernunziata/h/npdn-2023-3g-metabarcode-results 

@@ -23,11 +23,11 @@ Lets import data from a shared history. These are raw reads, exactly how you wou
 
 .. admonition:: Hands-On: Import Metagenomic Reads from Shared History
 
-    1. At the top of the screen click on ``Shared Data`` and select ``Pages``
+    1. At the top of the screen click on ``Shared Data`` and select ``Histories``
 
-    2. In the search field, search for ``NPDN`` and click on the page ``NPDN HTS 2023``
+    2. Find the history for ``NPDN 2023 2G Metabarcode Data`` Select the green plus sign to import into your Galaxy environment.
 
-    3. Find the history for ``NPDN 2023 2G Metabarcode Data`` Select the green plus sign to import into your Galaxy environment.
+      * Use this link if you have trouble finding it (https://usegalaxy.eu/u/schylernunziata/h/npdn-2022-data-day-2-part-2)
 
 Importing a Workflow
 ^^^^^^^^^^^^^^^^^^^^^
@@ -38,9 +38,9 @@ As you saw from the previous tutorials, many bioinformatics analysis requires mu
 
     1. At the top of your History, click on 'Shared Data' and select 'Workflows'
 
-    2. Search for 'NPDN 2022 DADA2' and select.
+    2. Search for 'NPDN' and select ``NPDN 2022 DADA2``
 
-    3. In the upper left corner, select the plus sign to import this workflow into your Galaxy environment.
+    3. Click the dropdown arrow next to the workflow name and select `Import`.
 
 Running the Workflow
 ^^^^^^^^^^^^^^^^^^^^^

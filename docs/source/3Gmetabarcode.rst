@@ -19,9 +19,7 @@ Lets import data from a shared history. These are raw reads, exactly how you wou
 
     1. At the top of the screen click on ``Shared Data`` and select ``Histories``
 
-    2. In the search field, search for ``NPDN 2023``
-
-    3. Find the history for ``NPDN 2023 3G Metabarcode Data`` and select it and click import.
+    2. Find the history for ``NPDN 2023 3G Metabarcode Data`` and select it and click import.
 
 Sequence QC
 ^^^^^^^^^^^^^
