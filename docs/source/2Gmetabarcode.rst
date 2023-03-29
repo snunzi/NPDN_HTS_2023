@@ -25,7 +25,7 @@ Lets import data from a shared history. These are raw reads, exactly how you wou
 
     1. At the top of the screen click on ``Shared Data`` and select ``Histories``
 
-    2. Find the history for ``NPDN 2023 2G Metabarcode Data`` Select the green plus sign to import into your Galaxy environment.
+    2. Find the history for ``NPDN 2023 2G Metabarcode Data`` and import it into your Galaxy environment.
 
       * Use this link if you have trouble finding it (https://usegalaxy.eu/u/schylernunziata/h/npdn-2022-data-day-2-part-2)
 
