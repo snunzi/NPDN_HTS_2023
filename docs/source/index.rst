@@ -17,6 +17,7 @@ NPDN HTS Bioinformatics Training 2023
    3gvirus
    2Gmetabarcode
    3Gmetabarcode
+   3gvirusexp
    help
 
 
