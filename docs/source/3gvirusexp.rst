@@ -32,15 +32,15 @@ The first step in any sequencing analysis is quality check and trimming. These s
 
 .. admonition:: Hands-On: Quality Check
 
-  1. In tools menu, search for 'Nanoplot' and click on it.
+    1. In tools menu, search for 'Nanoplot' and click on it.
 
-  2. Run Nanoplot tool with the following parameters
+    2. Run Nanoplot tool with the following parameters
 
-  * “files”: ``virus_3g.fastq.gz``
+    * “files”: ``virus_3g.fastq.gz``
 
-  * Leave the rest as default.
+    * Leave the rest as default.
 
-  3. Click Execute.
+    3. Click Execute.
 
 
 Nanoplot should produce four output files. Let's take a look at the html output report.
@@ -101,7 +101,7 @@ We will now remove host reads from the dataset. We will use the arabidopsis geno
 
       * Will you select a reference genome from your history or use a built-in index? ``Use a built in genome index``
 
-    * Using reference genome: ``Arabidopsis thaliana (TAIR10)
+      * Using reference genome: ``Arabidopsis thaliana (TAIR10)``
 
       * Select fastq datasets: ``filtlong output``
 
@@ -141,7 +141,7 @@ We will be mapping all reads to identify members in a mixed set of metagenomic r
 
       * Select fastq dataset: ``meta_X_nonhost.fastq.gz``
 
-  2. Run tool.
+    2. Run tool.
 
 .. admonition:: Hands-On: Count read Mapping
 
