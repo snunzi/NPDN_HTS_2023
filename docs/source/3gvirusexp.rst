@@ -4,7 +4,7 @@ Experimental 3G Viral Metagenomics
 
 Introduction
 ^^^^^^^^^^^^
-Here, we will analyse the data you generated over the past two days. You should each have two samples, one from a tomato host and the other from an orange host. Lets see what viruses we have!
+Here, we will analyze the data you generated over the past two days. You should each have two samples, one from a tomato host and the other from an orange host. Lets see what viruses we have!
 
 
 Import Data
@@ -19,9 +19,9 @@ Lets import data from a shared history. These are your raw reads. The only thing
 
     3. Find the history for ``NPDN HTS2 2023 Data 3G Virus `` Select the green plus sign to import into your Galaxy environment.
 
-	4. After uploading the shared history you can delete barcodes that are not yours and rename your sequences to identify what they are, i.e. 'meta_tomato.fastq.gz' and 'meta_orange.fastq.gz'.
+    4. After uploading the shared history you can delete barcodes that are not yours and rename your sequences to identify what they are, i.e. 'meta_tomato.fastq.gz' and 'meta_orange.fastq.gz'.
 
-	5. You should now have 2 seqeuncing files (fastq.gz) and a virus database (nt_vrl_plant_pathoscope_95.fasta) in your history.
+    5. You should now have 2 seqeuncing files (fastq.gz) and a virus database (nt_vrl_plant_pathoscope_95.fasta) in your history.
 
 
 
@@ -32,15 +32,15 @@ The first step in any sequencing analysis is quality check and trimming. These s
 
 .. admonition:: Hands-On: Quality Check
 
-	1. In tools menu, search for 'Nanoplot' and click on it.
+  1. In tools menu, search for 'Nanoplot' and click on it.
 
-	2. Run Nanoplot tool with the following parameters
+  2. Run Nanoplot tool with the following parameters
 
-		* “files”: ``virus_3g.fastq.gz``
+  * “files”: ``virus_3g.fastq.gz``
 
-		* Leave the rest as default.
+  * Leave the rest as default.
 
-	3. Click Execute.
+  3. Click Execute.
 
 
 Nanoplot should produce four output files. Let's take a look at the html output report.
@@ -101,7 +101,7 @@ We will now remove host reads from the dataset. We will use the arabidopsis geno
 
       * Will you select a reference genome from your history or use a built-in index? ``Use a built in genome index``
 
-	  * Using reference genome: ``Arabidopsis thaliana (TAIR10)
+    * Using reference genome: ``Arabidopsis thaliana (TAIR10)
 
       * Select fastq datasets: ``filtlong output``
 
@@ -141,21 +141,19 @@ We will be mapping all reads to identify members in a mixed set of metagenomic r
 
       * Select fastq dataset: ``meta_X_nonhost.fastq.gz``
 
-	2. Run tool.
+  2. Run tool.
 
 .. admonition:: Hands-On: Count read Mapping
 
     1. Find tool ``samtools idxstats``
 
-	2. Run samtools idxstats with the following parameters:
+    2. Run samtools idxstats with the following parameters:
 
-      * BAM file: ``Map with minimap...``
+    * BAM file: ``Map with minimap...``
 
-	3. Run tool.
+    3. Run tool.
 
-	4. Download this file to your computer and open in excel to examine.
-
-
+    4. Download this file to your computer and open in excel to examine.
 
 Metagenome Assembly
 ^^^^^^^^^^^^^^^^^^^^^
@@ -190,28 +188,28 @@ Let's Blast the contigs we generated. First we will build a blast database
 
 .. admonition:: Hands-On: Blast Contigs
 
-	1. Find the tool ``NCBI BLAST+ makeblastdb``.
+  1. Find the tool ``NCBI BLAST+ makeblastdb``.
 
-	2. Run this tool with the following parameters:
+  2. Run this tool with the following parameters:
 
-		* Molecule type of input: ``nucleotide``
+  * Molecule type of input: ``nucleotide``
 
-		* Subject database/sequences: ``Blast database from your history``
+  * Subject database/sequences: ``Blast database from your history``
 
-	3. Run tool.
+  3. Run tool.
 
 
 
 .. admonition:: Hands-On: Blast Contigs
 
-	1. Find the tool ``NCBI BLAST+ blastn``.
+  1. Find the tool ``NCBI BLAST+ blastn``.
 
-	2. Run this tool with the following parameters:
+  2. Run this tool with the following parameters:
 
-		* Nucleotide query sequence(s): ``Flye Consensus``
+  * Nucleotide query sequence(s): ``Flye Consensus``
 
-		* Subject database/sequences: ``Blast database from your history``
+  * Subject database/sequences: ``Blast database from your history``
 
-	3. Run tool.
+  3. Run tool.
 
-	4. Download results to computer and open in excel.
+  4. Download results to computer and open in excel.
