@@ -155,6 +155,42 @@ We will be mapping all reads to identify members in a mixed set of metagenomic r
 
     4. Download this file to your computer and open in excel to examine.
 
+Extra-Pull out mapped Reads
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. admonition:: Hands-On: Pull out mapped reads
+
+    1. Make a bed file of what you need, this is a text file with name of your genome (tab) 1	(tab)	length of your genome:
+
+  * Formated:
+
+  * ti|1761477|gi|0|ref|OM515245|Tomato_brown_rugose_fruit_virus_isolate_39986372,_complete_genome	1	7767
+
+  2. Import your bed file into Galaxy
+
+  3. Open the tool ``samtools view``. Run with the following parameters:
+
+  * SAM/BAM/CRAM data set : ``Minimap bam file``
+
+  * What would you like to look at? ``A filtered/subsampled selection of reads``
+
+  * Configure Filters:
+
+  * Filter by regions: ``Regions from a BED file``
+
+  * Filter by intervals in a bed file ``Select your bed file``
+
+  * Run Tool
+
+  4. Open the tool ``samtools fastx``. Run with the following parameters:
+
+    * “BAM or SAM file to convert”: ``Filtered bam``
+
+    * “Output format”: ``fasta``
+
+  5. You can blast these reads to a larger database (NCBI) to see what they are
+
+
+
 Metagenome Assembly
 ^^^^^^^^^^^^^^^^^^^^^
 
